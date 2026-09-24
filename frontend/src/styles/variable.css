@@ -1,0 +1,72 @@
+:root {
+  /* Colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+
+  --color-text: #172033;
+  --color-text-secondary: #344054;
+  --color-text-muted: #667085;
+  --color-text-light: #98a2b3;
+
+  --color-background: #f5f7fb;
+  --color-surface: #ffffff;
+
+  --color-border: #e4e7ec;
+  --color-border-dark: #d0d5dd;
+
+  --color-danger: #dc2626;
+  --color-danger-light: #fef2f2;
+
+  --color-success: #027a48;
+  --color-success-light: #ecfdf3;
+
+  --color-warning: #b54708;
+  --color-warning-light: #fffaeb;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm:
+    0 2px 8px rgba(16, 24, 40, 0.04);
+
+  --shadow-md:
+    0 6px 18px rgba(16, 24, 40, 0.07);
+
+  --shadow-lg:
+    0 12px 30px rgba(16, 24, 40, 0.1);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1100px;
+  --container-xl: 1280px;
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}

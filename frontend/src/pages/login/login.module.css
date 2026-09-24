@@ -1,0 +1,460 @@
+.loginPage {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 32px 16px;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgb(37 99 235 / 8%),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgb(16 185 129 / 6%),
+      transparent 30%
+    ),
+    var(--color-background);
+}
+
+/* ========================================
+   Decorative background
+======================================== */
+
+.backgroundShapeOne,
+.backgroundShapeTwo {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.backgroundShapeOne {
+  width: 420px;
+  height: 420px;
+
+  top: -220px;
+  right: -150px;
+
+  background: rgb(37 99 235 / 5%);
+}
+
+.backgroundShapeTwo {
+  width: 320px;
+  height: 320px;
+
+  bottom: -170px;
+  left: -120px;
+
+  background: rgb(16 185 129 / 5%);
+}
+
+/* ========================================
+   Container
+======================================== */
+
+.loginContainer {
+  width: 100%;
+  max-width: 430px;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Brand
+======================================== */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.brandIcon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: var(--color-primary);
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgb(37 99 235 / 20%);
+}
+
+.brand h1 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.brand p {
+  margin: 2px 0 0;
+
+  color: var(--color-muted);
+
+  font-size: 12px;
+}
+
+/* ========================================
+   Card
+======================================== */
+
+.loginCard {
+  padding: 32px;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 20px 45px rgb(16 24 40 / 8%);
+}
+
+/* ========================================
+   Card Header
+======================================== */
+
+.cardHeader {
+  margin-bottom: 26px;
+
+  text-align: center;
+}
+
+.cardHeader h2 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cardHeader p {
+  margin: 8px 0 0;
+
+  color: var(--color-muted);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   Error
+======================================== */
+
+.errorMessage {
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgb(239 68 68 / 20%);
+
+  border-radius: var(--radius-md);
+
+  background: rgb(239 68 68 / 8%);
+
+  color: var(--color-danger);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   Form
+======================================== */
+
+.loginForm {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.formGroup label {
+  color: var(--color-secondary);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.formGroup input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid var(--color-border-dark);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+
+  color: var(--color-text);
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.formGroup input::placeholder {
+  color: var(--color-light);
+}
+
+.formGroup input:hover:not(:disabled) {
+  border-color: #b8c0cc;
+}
+
+.formGroup input:focus {
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 3px rgb(37 99 235 / 10%);
+}
+
+.formGroup input:disabled {
+  background: var(--color-background);
+
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Validation
+======================================== */
+
+.fieldError {
+  color: var(--color-danger);
+
+  font-size: 12px;
+}
+
+/* ========================================
+   Login Button
+======================================== */
+
+.loginButton {
+  width: 100%;
+
+  min-height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 4px;
+
+  border: 0;
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-primary);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.loginButton:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px rgb(37 99 235 / 20%);
+}
+
+.loginButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loginButton:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Loading Spinner
+======================================== */
+
+.spinner {
+  width: 15px;
+  height: 15px;
+
+  border: 2px solid rgb(255 255 255 / 35%);
+
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   Security Note
+======================================== */
+
+.securityNote {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--color-border);
+
+  color: var(--color-muted);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+.securityIcon {
+  font-size: 13px;
+}
+
+.registerLink {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 18px;
+
+  color: var(--color-muted);
+
+  font-size: 13px;
+}
+
+.registerLink button {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--color-primary);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.registerLink button:hover {
+  color: var(--color-primary-dark);
+
+  text-decoration: underline;
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+.footer {
+  margin: 22px 0 0;
+
+  color: var(--color-light);
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 480px) {
+  .loginPage {
+    padding: 20px 12px;
+  }
+
+  .loginCard {
+    padding: 24px 20px;
+  }
+
+  .cardHeader h2 {
+    font-size: 22px;
+  }
+
+  .brand {
+    margin-bottom: 20px;
+  }
+}

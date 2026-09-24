@@ -1,0 +1,660 @@
+.projectPage {
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+/* ================================
+   Header
+================================ */
+
+.projectHeader {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projectHeaderContent {
+  width: min(
+    calc(100% - 32px),
+    var(--container-lg)
+  );
+  margin: 0 auto;
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pageLabel {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.projectHeader h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.projectId {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ================================
+   Main section
+================================ */
+
+.taskSection {
+  width: min(
+    calc(100% - 32px),
+    var(--container-lg)
+  );
+  margin: 0 auto;
+  padding: 32px 0 60px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--color-text);
+}
+
+.taskCount {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ================================
+   Cards
+================================ */
+
+.formCard,
+.filterCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+.cardHeader,
+.filterHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardHeader h3,
+.filterHeader h3 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--color-text);
+}
+
+.filterHeader p {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ================================
+   Forms
+================================ */
+
+.taskForm {
+  padding: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.formFull {
+  grid-column: 1 / -1;
+}
+
+.formGroup label {
+  color: var(--color-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 10%);
+}
+
+.fieldError {
+  color: var(--color-danger);
+  font-size: 12px;
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ================================
+   Modal Forms
+================================ */
+
+.taskForm {
+  padding: 0;
+}
+
+.taskForm .formGrid {
+  width: 100%;
+}
+
+.taskForm .formGroup input,
+.taskForm .formGroup select,
+.taskForm .formGroup textarea {
+  box-sizing: border-box;
+}
+
+.taskForm .formActions {
+  justify-content: flex-end;
+}
+
+
+/* ================================
+   Modal Actions
+================================ */
+
+.modalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 22px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ================================
+   Delete Confirmation
+================================ */
+
+.deleteContent {
+  text-align: center;
+}
+
+.deleteIcon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 16px;
+
+  border-radius: 50%;
+
+  background: rgb(239 68 68 / 10%);
+
+  color: var(--color-danger);
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.deleteContent p {
+  margin: 8px 0;
+
+  color: var(--color-muted);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.deleteContent strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.deleteWarning {
+  color: var(--color-danger) !important;
+  font-size: 13px !important;
+}
+
+/* ================================
+   Buttons
+================================ */
+
+.btn {
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btnPrimary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.btnSecondary {
+  background: var(--color-surface);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border-dark);
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background: var(--color-background);
+}
+
+.btnDanger {
+  background: var(--color-danger);
+  color: #ffffff;
+}
+
+.btnDanger:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* ================================
+   Filters
+================================ */
+
+.filterGrid {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.searchGroup {
+  min-width: 0;
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchWrapper input {
+  padding-right: 40px;
+}
+
+.clearSearch {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clearSearch:hover {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* ================================
+   Task list
+================================ */
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.taskCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.taskCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.taskCardHeader h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 17px;
+}
+
+.taskId {
+  display: inline-block;
+  margin-top: 5px;
+  color: var(--color-light);
+  font-size: 12px;
+}
+
+.taskDescription {
+  margin: 14px 0;
+  color: var(--color-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ================================
+   Status badges
+================================ */
+
+.statusTodo {
+  background: var(--color-background);
+  color: var(--color-secondary);
+}
+
+.statusInProgress {
+  background: rgb(37 99 235 / 10%);
+  color: var(--color-primary-dark);
+}
+
+.statusCompleted {
+  background: rgb(16 185 129 / 10%);
+  color: var(--color-success);
+}
+
+/* ================================
+   Priority badges
+================================ */
+
+.priorityLow {
+  background: rgb(16 185 129 / 10%);
+  color: var(--color-success);
+}
+
+.priorityMedium {
+  background: rgb(245 158 11 / 10%);
+  color: var(--color-warning);
+}
+
+.priorityHigh {
+  background: rgb(239 68 68 / 10%);
+  color: var(--color-danger);
+}
+
+/* ================================
+   Task footer
+================================ */
+
+.taskFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.taskDate {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.taskActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* ================================
+   States
+================================ */
+
+.stateMessage,
+.emptyState,
+.errorMessage {
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.stateMessage {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.errorMessage {
+  margin-bottom: 20px;
+  background: rgb(239 68 68 / 8%);
+  border: 1px solid rgb(239 68 68 / 20%);
+  color: var(--color-danger);
+  font-size: 14px;
+}
+
+.emptyState {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border-dark);
+}
+
+.emptyState .btn {
+  margin-top: 18px;
+}
+
+.emptyState h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 17px;
+}
+
+.emptyState p {
+  margin: 7px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ================================
+   Pagination
+================================ */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.paginationInfo {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.paginationActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+  .projectHeaderContent {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .projectHeader h1 {
+    font-size: 25px;
+  }
+
+  .formGrid,
+  .filterGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formFull {
+    grid-column: auto;
+  }
+
+  .taskCardHeader,
+  .taskFooter,
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .taskMeta {
+    justify-content: flex-start;
+  }
+
+  .taskActions {
+    width: 100%;
+  }
+
+  .taskActions .btn {
+    flex: 1;
+  }
+
+  .paginationActions {
+    width: 100%;
+  }
+
+  .paginationActions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectHeaderContent,
+  .taskSection {
+    width: min(
+      calc(100% - 24px),
+      var(--container-lg)
+    );
+  }
+
+  .taskForm,
+  .filterGrid {
+    padding: 18px;
+  }
+
+  .taskCard {
+    padding: 16px;
+  }
+
+  .formActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formActions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* your existing styles... */
+
+  .modalActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modalActions .btn {
+    width: 100%;
+  }
+
+}
