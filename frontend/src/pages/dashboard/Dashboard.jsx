@@ -49,18 +49,8 @@ function Dashboard() {
     (state) => state.projects
   );
 
-
-  // --------------------------------------------------
-  // Project form state
-  // --------------------------------------------------
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
-
-  // --------------------------------------------------
-  // Modal state
-  // --------------------------------------------------
 
   const [modalType, setModalType] = useState(null);
 
@@ -69,11 +59,6 @@ function Dashboard() {
 
   const [actionLoading, setActionLoading] =
     useState(false);
-
-
-  // --------------------------------------------------
-  // Load projects
-  // --------------------------------------------------
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -104,10 +89,6 @@ function Dashboard() {
   }, [token, dispatch]);
 
 
-  // --------------------------------------------------
-  // Open Create Modal
-  // --------------------------------------------------
-
   const handleOpenCreateModal = () => {
     setTitle("");
     setDescription("");
@@ -115,11 +96,6 @@ function Dashboard() {
 
     setModalType("create");
   };
-
-
-  // --------------------------------------------------
-  // Open Edit Modal
-  // --------------------------------------------------
 
   const handleOpenEditModal = (project) => {
     setSelectedProject(project);
@@ -134,20 +110,11 @@ function Dashboard() {
   };
 
 
-  // --------------------------------------------------
-  // Open Delete Modal
-  // --------------------------------------------------
-
   const handleOpenDeleteModal = (project) => {
     setSelectedProject(project);
 
     setModalType("delete");
   };
-
-
-  // --------------------------------------------------
-  // Close Modal
-  // --------------------------------------------------
 
   const handleCloseModal = () => {
     if (loading || actionLoading) {
@@ -161,11 +128,6 @@ function Dashboard() {
 
     setModalType(null);
   };
-
-
-  // --------------------------------------------------
-  // Create Project
-  // --------------------------------------------------
 
   const handleCreateProject = async (event) => {
     event.preventDefault();
@@ -205,11 +167,6 @@ function Dashboard() {
       );
     }
   };
-
-
-  // --------------------------------------------------
-  // Edit Project
-  // --------------------------------------------------
 
   const handleEditProject = async (event) => {
     event.preventDefault();
@@ -257,11 +214,6 @@ function Dashboard() {
     }
   };
 
-
-  // --------------------------------------------------
-  // Delete Project
-  // --------------------------------------------------
-
   const handleDeleteProject = async () => {
     if (!selectedProject) {
       return;
@@ -295,11 +247,6 @@ function Dashboard() {
     }
   };
 
-
-  // --------------------------------------------------
-  // Logout
-  // --------------------------------------------------
-
   const handleLogout = () => {
     removeToken();
 
@@ -308,17 +255,8 @@ function Dashboard() {
     navigate("/login");
   };
 
-
-  // --------------------------------------------------
-  // Render
-  // --------------------------------------------------
-
   return (
     <main className={styles.dashboard}>
-
-      {/* ============================================
-          HEADER
-      ============================================ */}
 
       <header className={styles.header}>
 
@@ -360,18 +298,9 @@ function Dashboard() {
 
       </header>
 
-
-      {/* ============================================
-          MAIN CONTENT
-      ============================================ */}
-
       <section className={styles.content}>
 
         <div className={styles.projectsSection}>
-
-          {/* ========================================
-              PROJECT HEADER
-          ======================================== */}
 
           <div className={styles.sectionHeader}>
 
@@ -416,11 +345,6 @@ function Dashboard() {
 
           </div>
 
-
-          {/* ========================================
-              ERROR
-          ======================================== */}
-
           {error && (
             <div
               className={styles.errorMessage}
@@ -428,11 +352,6 @@ function Dashboard() {
               {error}
             </div>
           )}
-
-
-          {/* ========================================
-              LOADING
-          ======================================== */}
 
           {loading &&
             projects.length === 0 && (
@@ -444,11 +363,6 @@ function Dashboard() {
                 Loading projects...
               </div>
             )}
-
-
-          {/* ========================================
-              EMPTY STATE
-          ======================================== */}
 
           {!loading &&
             projects.length === 0 && (
@@ -498,11 +412,6 @@ function Dashboard() {
 
             )}
 
-
-          {/* ========================================
-              PROJECT CARDS
-          ======================================== */}
-
           {projects.length > 0 && (
 
             <div
@@ -523,7 +432,6 @@ function Dashboard() {
                     
                   >
 
-                    {/* Project Header */}
 
                     <div
                       className={
@@ -561,7 +469,6 @@ function Dashboard() {
                     </div>
 
 
-                    {/* Description */}
 
                     <p
                       className={
@@ -573,7 +480,6 @@ function Dashboard() {
                     </p>
 
 
-                    {/* Footer */}
 
                     <div
                       className={
@@ -641,11 +547,6 @@ function Dashboard() {
         </div>
 
       </section>
-
-
-      {/* ==================================================
-          CREATE PROJECT MODAL
-      ================================================== */}
 
       <Modal
         isOpen={
@@ -763,11 +664,6 @@ function Dashboard() {
         </form>
 
       </Modal>
-
-
-      {/* ==================================================
-          EDIT PROJECT MODAL
-      ================================================== */}
 
       <Modal
         isOpen={
@@ -887,11 +783,6 @@ function Dashboard() {
         </form>
 
       </Modal>
-
-
-      {/* ==================================================
-          DELETE PROJECT MODAL
-      ================================================== */}
 
       <Modal
         isOpen={

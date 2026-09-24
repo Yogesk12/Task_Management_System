@@ -34,10 +34,6 @@ function Login() {
 
   const [formErrors, setFormErrors] = useState({});
 
-  // --------------------------------------------------
-  // Input change
-  // --------------------------------------------------
-
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -51,10 +47,6 @@ function Login() {
       [name]: "",
     }));
   };
-
-  // --------------------------------------------------
-  // Validation
-  // --------------------------------------------------
 
   const validateForm = () => {
     const errors = {};
@@ -76,9 +68,6 @@ function Login() {
     return errors;
   };
 
-  // --------------------------------------------------
-  // Login
-  // --------------------------------------------------
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -93,7 +82,6 @@ function Login() {
     dispatch(loginStart());
 
     try {
-      // Login API
       const tokenResponse = await loginUser({
         email: formData.email.trim(),
         password: formData.password,
@@ -114,8 +102,6 @@ function Login() {
       const user = await getCurrentUser(token);
 
       dispatch(getUserSuccess(user));
-
-      // Navigate after successful authentication
       navigate("/dashboard");
     } catch (err) {
       const message =
@@ -132,7 +118,6 @@ function Login() {
       <div className={styles.backgroundShapeTwo} />
 
       <section className={styles.loginContainer}>
-        {/* Brand */}
 
         <div className={styles.brand}>
           <div className={styles.brandIcon}>
@@ -148,8 +133,6 @@ function Login() {
           </div>
         </div>
 
-        {/* Login Card */}
-
         <div className={styles.loginCard}>
           <div className={styles.cardHeader}>
             <h2>Welcome back</h2>
@@ -160,8 +143,6 @@ function Login() {
             </p>
           </div>
 
-          {/* Error */}
-
           {error && (
             <div
               className={styles.errorMessage}
@@ -171,14 +152,10 @@ function Login() {
             </div>
           )}
 
-          {/* Form */}
-
           <form
             className={styles.loginForm}
             onSubmit={handleSubmit}
           >
-            {/* Email */}
-
             <div className={styles.formGroup}>
               <label htmlFor="email">
                 Email address
@@ -202,8 +179,6 @@ function Login() {
               )}
             </div>
 
-            {/* Password */}
-
             <div className={styles.formGroup}>
               <label htmlFor="password">
                 Password
@@ -226,9 +201,6 @@ function Login() {
                 </span>
               )}
             </div>
-
-            {/* Submit */}
-
             <button
               type="submit"
               className={styles.loginButton}
@@ -247,8 +219,6 @@ function Login() {
               )}
             </button>
           </form>
-
-          {/* Demo information */}
 
           <div className={styles.securityNote}>
             <span className={styles.securityIcon}>
@@ -272,8 +242,6 @@ function Login() {
             </button>
           </div>
         </div>
-
-        {/* Footer */}
 
         <p className={styles.footer}>
           TaskFlow · Task Management System

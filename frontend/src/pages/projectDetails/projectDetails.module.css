@@ -3,10 +3,6 @@
   background: var(--color-background);
 }
 
-/* ================================
-   Header
-================================ */
-
 .projectHeader {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
@@ -48,9 +44,6 @@
   font-size: 14px;
 }
 
-/* ================================
-   Main section
-================================ */
 
 .taskSection {
   width: min(
@@ -81,9 +74,6 @@
   font-size: 14px;
 }
 
-/* ================================
-   Cards
-================================ */
 
 .formCard,
 .filterCard {
@@ -113,9 +103,6 @@
   font-size: 14px;
 }
 
-/* ================================
-   Forms
-================================ */
 
 .taskForm {
   padding: 0;
@@ -183,9 +170,6 @@
   margin-top: 22px;
 }
 
-/* ================================
-   Modal Forms
-================================ */
 
 .taskForm {
   padding: 0;
@@ -206,9 +190,6 @@
 }
 
 
-/* ================================
-   Modal Actions
-================================ */
 
 .modalActions {
   display: flex;
@@ -222,10 +203,6 @@
   border-top: 1px solid var(--color-border);
 }
 
-
-/* ================================
-   Delete Confirmation
-================================ */
 
 .deleteContent {
   text-align: center;
@@ -270,9 +247,6 @@
   font-size: 13px !important;
 }
 
-/* ================================
-   Buttons
-================================ */
 
 .btn {
   border: 0;
@@ -324,9 +298,6 @@
   opacity: 0.9;
 }
 
-/* ================================
-   Filters
-================================ */
 
 .filterGrid {
   padding: 24px;
@@ -368,9 +339,6 @@
   color: var(--color-text);
 }
 
-/* ================================
-   Task list
-================================ */
 
 .taskList {
   display: flex;
@@ -432,9 +400,6 @@
   letter-spacing: 0.02em;
 }
 
-/* ================================
-   Status badges
-================================ */
 
 .statusTodo {
   background: var(--color-background);
@@ -451,10 +416,6 @@
   color: var(--color-success);
 }
 
-/* ================================
-   Priority badges
-================================ */
-
 .priorityLow {
   background: rgb(16 185 129 / 10%);
   color: var(--color-success);
@@ -470,9 +431,6 @@
   color: var(--color-danger);
 }
 
-/* ================================
-   Task footer
-================================ */
 
 .taskFooter {
   display: flex;
@@ -494,11 +452,6 @@
   align-items: center;
   gap: 8px;
 }
-
-
-/* ================================
-   States
-================================ */
 
 .stateMessage,
 .emptyState,
@@ -543,9 +496,6 @@
   font-size: 14px;
 }
 
-/* ================================
-   Pagination
-================================ */
 
 .pagination {
   display: flex;
@@ -564,10 +514,6 @@
   display: flex;
   gap: 8px;
 }
-
-/* ================================
-   Responsive
-================================ */
 
 @media (max-width: 768px) {
   .projectHeaderContent {
@@ -645,9 +591,6 @@
 }
 
 @media (max-width: 480px) {
-
-  /* your existing styles... */
-
   .modalActions {
     flex-direction: column;
     align-items: stretch;

@@ -94,7 +94,6 @@ def get_tasks(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    # Verify project ownership
     project = (
         db.query(Project)
         .filter(
@@ -110,24 +109,20 @@ def get_tasks(
             detail="Project not found",
         )
 
-    # Base query
     query = db.query(Task).filter(
         Task.project_id == project_id
     )
 
-    # Filter by status
     if status_filter is not None:
         query = query.filter(
             Task.status == status_filter
         )
 
-    # Filter by priority
     if priority is not None:
         query = query.filter(
             Task.priority == priority
         )
 
-    # Bonus: task search
     if search:
         search_pattern = f"%{search}%"
 
@@ -136,16 +131,12 @@ def get_tasks(
             | Task.description.ilike(search_pattern)
         )
 
-    # Get total matching tasks BEFORE pagination
     total = query.count()
 
-    # Calculate total pages
     pages = ceil(total / limit) if total > 0 else 0
 
-    # Calculate offset
     offset = (page - 1) * limit
 
-    # Get paginated tasks
     tasks = (
         query
         .order_by(Task.created_at.desc())

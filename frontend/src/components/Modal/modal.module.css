@@ -36,8 +36,6 @@
 }
 
 
-/* Sizes */
-
 .small {
   max-width: 400px;
 }
@@ -50,8 +48,6 @@
   max-width: 720px;
 }
 
-
-/* Header */
 
 .header {
   display: flex;
@@ -89,8 +85,6 @@
   line-height: 1.5;
 }
 
-
-/* Close button */
 
 .closeButton {
   width: 34px;
@@ -133,14 +127,9 @@
 }
 
 
-/* Body */
-
 .body {
   padding: 24px;
 }
-
-
-/* Animations */
 
 @keyframes overlayIn {
   from {
@@ -167,8 +156,6 @@
   }
 }
 
-
-/* Mobile */
 
 @media (max-width: 600px) {
   .overlay {

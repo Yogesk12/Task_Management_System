@@ -29,7 +29,6 @@ def register_user(
     user_data: UserCreate,
     db: Session = Depends(get_db),
 ):
-    # Check whether the email already exists
     existing_user = (
         db.query(User)
         .filter(User.email == user_data.email)
@@ -42,10 +41,8 @@ def register_user(
             detail="Email already registered",
         )
 
-    # Hash the password before storing it
     hashed_password = hash_password(user_data.password)
 
-    # Create the user
     new_user = User(
         full_name=user_data.full_name.strip(),
         email=user_data.email,

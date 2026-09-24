@@ -19,9 +19,6 @@ import {
 
 import { removeToken } from "./utils/authStorage.js";
 
-/*
-  Restores the user's session after a browser refresh.
-*/
 function AuthBootstrap() {
   const dispatch = useDispatch();
 
@@ -30,7 +27,6 @@ function AuthBootstrap() {
 
   useEffect(() => {
     const restoreSession = async () => {
-      // No token or user already loaded
       if (!token || user) {
         return;
       }
@@ -38,12 +34,10 @@ function AuthBootstrap() {
       dispatch(getUserStart());
 
       try {
-        // Backend verifies the JWT and returns the current user
         const currentUser = await getCurrentUser(token);
 
         dispatch(getUserSuccess(currentUser));
       } catch (error) {
-        // Token is invalid or expired
         removeToken();
 
         dispatch(

@@ -7,10 +7,7 @@ const initialState = {
   user: null,
   token: storedToken,
   isAuthenticated: !!storedToken,
-
-  // Used when restoring authentication after page refresh
   authInitializing: !!storedToken,
-
   loading: false,
   error: null,
 };

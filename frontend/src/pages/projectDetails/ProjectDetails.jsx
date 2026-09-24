@@ -56,24 +56,12 @@ const INITIAL_EDIT_FORM = {
 function ProjectDetail() {
 
   const { projectId } = useParams();
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
-
-  // ==================================================
-  // AUTH
-  // ==================================================
 
   const token = useSelector(
     (state) => state.auth.token
   );
-
-
-  // ==================================================
-  // TASK STATE
-  // ==================================================
 
   const {
     tasks,
@@ -86,28 +74,13 @@ function ProjectDetail() {
     (state) => state.tasks
   );
 
-
-  // ==================================================
-  // CREATE TASK FORM
-  // ==================================================
-
   const [taskForm, setTaskForm] = useState(
     INITIAL_TASK_FORM
   );
 
-
-  // ==================================================
-  // EDIT TASK FORM
-  // ==================================================
-
   const [editForm, setEditForm] = useState(
     INITIAL_EDIT_FORM
   );
-
-
-  // ==================================================
-  // FILTERS
-  // ==================================================
 
   const [statusFilter, setStatusFilter] =
     useState("");
@@ -115,37 +88,17 @@ function ProjectDetail() {
   const [priorityFilter, setPriorityFilter] =
     useState("");
 
-
-  // ==================================================
-  // SEARCH
-  // ==================================================
-
   const [search, setSearch] =
     useState("");
 
   const [searchQuery, setSearchQuery] =
     useState("");
 
-
-  // ==================================================
-  // PAGINATION
-  // ==================================================
-
   const [currentPage, setCurrentPage] =
     useState(1);
 
-
-  // ==================================================
-  // VALIDATION
-  // ==================================================
-
   const [formErrors, setFormErrors] =
     useState({});
-
-
-  // ==================================================
-  // MODAL STATE
-  // ==================================================
 
   const [modalType, setModalType] =
     useState(null);
@@ -155,11 +108,6 @@ function ProjectDetail() {
 
   const [actionLoading, setActionLoading] =
     useState(false);
-
-
-  // ==================================================
-  // SEARCH DEBOUNCE
-  // ==================================================
 
   useEffect(() => {
 
@@ -176,11 +124,6 @@ function ProjectDetail() {
 
   }, [search]);
 
-
-  // ==================================================
-  // RESET PAGINATION WHEN FILTERS CHANGE
-  // ==================================================
-
   useEffect(() => {
 
     setCurrentPage(1);
@@ -190,10 +133,6 @@ function ProjectDetail() {
     priorityFilter,
   ]);
 
-
-  // ==================================================
-  // FETCH TASKS
-  // ==================================================
 
   useEffect(() => {
 
@@ -261,11 +200,6 @@ function ProjectDetail() {
     dispatch,
   ]);
 
-
-  // ==================================================
-  // TASK FORM CHANGE
-  // ==================================================
-
   const handleTaskFormChange = (
     field,
     value
@@ -283,11 +217,6 @@ function ProjectDetail() {
     }));
   };
 
-
-  // ==================================================
-  // EDIT FORM CHANGE
-  // ==================================================
-
   const handleEditFormChange = (
     field,
     value
@@ -298,11 +227,6 @@ function ProjectDetail() {
       [field]: value,
     }));
   };
-
-
-  // ==================================================
-  // VALIDATE CREATE TASK
-  // ==================================================
 
   const validateTaskForm = () => {
 
@@ -326,11 +250,6 @@ function ProjectDetail() {
     return errors;
   };
 
-
-  // ==================================================
-  // OPEN CREATE MODAL
-  // ==================================================
-
   const handleOpenCreateModal = () => {
 
     setTaskForm(
@@ -343,11 +262,6 @@ function ProjectDetail() {
 
     setModalType("create");
   };
-
-
-  // ==================================================
-  // OPEN EDIT MODAL
-  // ==================================================
 
   const handleOpenEditModal = (
     task
@@ -377,10 +291,6 @@ function ProjectDetail() {
   };
 
 
-  // ==================================================
-  // OPEN DELETE MODAL
-  // ==================================================
-
   const handleOpenDeleteModal = (
     task
   ) => {
@@ -390,10 +300,6 @@ function ProjectDetail() {
     setModalType("delete");
   };
 
-
-  // ==================================================
-  // CLOSE MODAL
-  // ==================================================
 
   const handleCloseModal = () => {
 
@@ -416,11 +322,6 @@ function ProjectDetail() {
 
     setModalType(null);
   };
-
-
-  // ==================================================
-  // CREATE TASK
-  // ==================================================
 
   const handleCreateTask = async (
     event
@@ -530,11 +431,6 @@ function ProjectDetail() {
     }
   };
 
-
-  // ==================================================
-  // SAVE EDIT
-  // ==================================================
-
   const handleSaveEdit = async (
     event
   ) => {
@@ -634,11 +530,6 @@ function ProjectDetail() {
     }
   };
 
-
-  // ==================================================
-  // DELETE TASK
-  // ==================================================
-
   const handleDeleteTask = async () => {
 
     if (!selectedTask) {
@@ -660,9 +551,6 @@ function ProjectDetail() {
       let nextPage =
         currentPage;
 
-
-      // If deleting the last task
-      // on a page, go back one page.
 
       if (
         tasks.length === 1 &&
@@ -727,11 +615,6 @@ function ProjectDetail() {
     }
   };
 
-
-  // ==================================================
-  // PAGINATION
-  // ==================================================
-
   const handlePreviousPage = () => {
 
     if (currentPage > 1) {
@@ -757,11 +640,6 @@ function ProjectDetail() {
     }
   };
 
-
-  // ==================================================
-  // CLEAR SEARCH
-  // ==================================================
-
   const handleClearSearch = () => {
 
     setSearch("");
@@ -770,11 +648,6 @@ function ProjectDetail() {
 
     setCurrentPage(1);
   };
-
-
-  // ==================================================
-  // STATUS BADGE
-  // ==================================================
 
   const getStatusClass = (
     status
@@ -799,11 +672,6 @@ function ProjectDetail() {
     );
   };
 
-
-  // ==================================================
-  // PRIORITY BADGE
-  // ==================================================
-
   const getPriorityClass = (
     priority
   ) => {
@@ -827,20 +695,12 @@ function ProjectDetail() {
     );
   };
 
-
-  // ==================================================
-  // RENDER
-  // ==================================================
-
   return (
 
     <main
       className={styles.projectPage}
     >
 
-      {/* ============================================
-          HEADER
-      ============================================ */}
 
       <header
         className={
@@ -896,19 +756,12 @@ function ProjectDetail() {
       </header>
 
 
-      {/* ============================================
-          TASK SECTION
-      ============================================ */}
-
       <section
         className={
           styles.taskSection
         }
       >
 
-        {/* ========================================
-            SECTION HEADER
-        ======================================== */}
 
         <div
           className={
@@ -949,9 +802,6 @@ function ProjectDetail() {
         </div>
 
 
-        {/* ========================================
-            FILTERS
-        ======================================== */}
 
         <div
           className={
@@ -1137,11 +987,6 @@ function ProjectDetail() {
 
         </div>
 
-
-        {/* ========================================
-            ERROR
-        ======================================== */}
-
         {error && (
 
           <div
@@ -1153,11 +998,6 @@ function ProjectDetail() {
           </div>
 
         )}
-
-
-        {/* ========================================
-            LOADING
-        ======================================== */}
 
         {loading &&
           tasks.length === 0 && (
@@ -1171,11 +1011,6 @@ function ProjectDetail() {
             </div>
 
           )}
-
-
-        {/* ========================================
-            EMPTY STATE
-        ======================================== */}
 
         {!loading &&
           tasks.length === 0 && (
@@ -1211,11 +1046,6 @@ function ProjectDetail() {
             </div>
 
           )}
-
-
-        {/* ========================================
-            TASK LIST
-        ======================================== */}
 
         {tasks.length > 0 && (
 
@@ -1370,11 +1200,6 @@ function ProjectDetail() {
 
         )}
 
-
-        {/* ========================================
-            PAGINATION
-        ======================================== */}
-
         {pages > 1 && (
 
           <div
@@ -1432,11 +1257,6 @@ function ProjectDetail() {
         )}
 
       </section>
-
-
-      {/* ==================================================
-          CREATE TASK MODAL
-      ================================================== */}
 
       <Modal
         isOpen={
@@ -1718,11 +1538,6 @@ function ProjectDetail() {
 
       </Modal>
 
-
-      {/* ==================================================
-          EDIT TASK MODAL
-      ================================================== */}
-
       <Modal
         isOpen={
           modalType === "edit"
@@ -1989,11 +1804,6 @@ function ProjectDetail() {
         </form>
 
       </Modal>
-
-
-      {/* ==================================================
-          DELETE TASK MODAL
-      ================================================== */}
 
       <Modal
         isOpen={

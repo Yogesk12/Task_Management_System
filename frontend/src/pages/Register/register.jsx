@@ -20,9 +20,6 @@ function Register() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // --------------------------------------------------
-  // Input change
-  // --------------------------------------------------
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,14 +38,10 @@ function Register() {
     setSuccess("");
   };
 
-  // --------------------------------------------------
-  // Validation
-  // --------------------------------------------------
 
   const validateForm = () => {
     const errors = {};
 
-    // Full name validation
     if (!formData.full_name.trim()) {
       errors.full_name = "Full name is required.";
     } else if (formData.full_name.trim().length < 2) {
@@ -59,7 +52,6 @@ function Register() {
         "Full name cannot exceed 100 characters.";
     }
 
-    // Email validation
     if (!formData.email.trim()) {
       errors.email = "Email is required.";
     } else if (
@@ -70,7 +62,6 @@ function Register() {
       errors.email = "Enter a valid email address.";
     }
 
-    // Password validation
     if (!formData.password) {
       errors.password = "Password is required.";
     } else if (formData.password.length < 8) {
@@ -78,7 +69,6 @@ function Register() {
         "Password must contain at least 8 characters.";
     }
 
-    // Confirm password validation
     if (!formData.confirmPassword) {
       errors.confirmPassword =
         "Please confirm your password.";
@@ -91,10 +81,6 @@ function Register() {
 
     return errors;
   };
-
-  // --------------------------------------------------
-  // Register
-  // --------------------------------------------------
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -152,7 +138,6 @@ function Register() {
 
       <section className={styles.registerContainer}>
 
-        {/* Brand */}
 
         <div className={styles.brand}>
           <div className={styles.brandIcon}>
@@ -168,7 +153,6 @@ function Register() {
           </div>
         </div>
 
-        {/* Register Card */}
 
         <div className={styles.registerCard}>
 
@@ -181,8 +165,6 @@ function Register() {
             </p>
           </div>
 
-          {/* Error */}
-
           {error && (
             <div
               className={styles.errorMessage}
@@ -191,8 +173,6 @@ function Register() {
               {error}
             </div>
           )}
-
-          {/* Success */}
 
           {success && (
             <div
@@ -203,14 +183,11 @@ function Register() {
             </div>
           )}
 
-          {/* Form */}
 
           <form
             className={styles.registerForm}
             onSubmit={handleSubmit}
           >
-
-            {/* Full Name */}
 
             <div className={styles.formGroup}>
               <label htmlFor="register-full-name">
@@ -235,7 +212,6 @@ function Register() {
               )}
             </div>
 
-            {/* Email */}
 
             <div className={styles.formGroup}>
               <label htmlFor="register-email">
@@ -260,8 +236,6 @@ function Register() {
               )}
             </div>
 
-            {/* Password */}
-
             <div className={styles.formGroup}>
               <label htmlFor="register-password">
                 Password
@@ -285,7 +259,6 @@ function Register() {
               )}
             </div>
 
-            {/* Confirm Password */}
 
             <div className={styles.formGroup}>
               <label htmlFor="confirm-password">
@@ -310,7 +283,6 @@ function Register() {
               )}
             </div>
 
-            {/* Submit */}
 
             <button
               type="submit"
@@ -332,7 +304,6 @@ function Register() {
 
           </form>
 
-          {/* Login link */}
 
           <div className={styles.loginLink}>
             <span>
@@ -349,7 +320,6 @@ function Register() {
 
         </div>
 
-        {/* Footer */}
 
         <p className={styles.footer}>
           TaskFlow · Task Management System
