@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -33,6 +33,10 @@ function Login() {
   });
 
   const [formErrors, setFormErrors] = useState({});
+
+  useEffect(() => {
+    dispatch(loginFailure(null));
+  }, [dispatch]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

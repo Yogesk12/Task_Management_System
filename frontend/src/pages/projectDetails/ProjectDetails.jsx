@@ -246,6 +246,17 @@ function ProjectDetail() {
         "Task title must be 255 characters or less.";
     }
 
+    if (taskForm.due_date) {
+      const today = new Date();
+      const selectedDate = new Date(`${taskForm.due_date}T00:00:00`);
+
+      today.setHours(0, 0, 0, 0);
+
+      if (selectedDate < today) {
+        errors.due_date = "Due date cannot be in the past.";
+      }
+    }
+
 
     return errors;
   };
@@ -282,8 +293,12 @@ function ProjectDetail() {
       priority:
         task.priority || "MEDIUM",
 
-      due_date:
-        task.due_date || "",
+      // due_date:
+      //   task.due_date || "",
+
+      due_date: task.due_date
+        ? task.due_date.substring(0, 10)
+        : "",
     });
 
 
@@ -1459,7 +1474,11 @@ function ProjectDetail() {
                   actionLoading
                 }
               />
-
+              {formErrors.due_date && (
+                <span className={styles.fieldError}>
+                  {formErrors.due_date}
+                </span>
+              )}
             </div>
 
 
